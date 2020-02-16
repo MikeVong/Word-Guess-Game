@@ -7,26 +7,60 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css?family=Audiowide&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/style.css">
     <title>Word Guess Game</title>
   </head>
 
   <body>
-    <div class="container">
-      <h1>Word Guess Game: Top 80's Song</h1>
-      <p>Press any key to get started!</p>
-
-      <!-- When user presses any key, start game -->
-      <h4>Wins</h4>
-      <div id="totalWins"></div>
-      <h4>Losses</h4>
-      <div id="totalLosses"></div>
+    <div class="jumbotron" id="back">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="./assets/images/WordGuess.jpg" width="500px" height="200px">
+        </div>
+        <div class="col-md-6">
+          <h1 class="display-4">Word Guess Game: Top 80's Song</h1>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <p class="lead">Press any key to get started!</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <h4>Wins</h4>
+          <div id="totalWins"></div>
+        </div>
+        <div class="col-md-3">
+          <h4>Losses</h4>
+          <div id="totalLosses"></div>
+        </div>
+        <div class="col-md-3">
+          <h4>Guesses Remaining</h4>
+          <div id="remainingGuesses"></div>
+        </div>
+      </div>
+      
+       <!-- When user presses any key, start game -->
+      
+      
+      
+      
       <h4>Current Word</h4>
       <div id="currentWord"></div>
-      <h4>Guesses Remaining</h4>
-      <div id="remainingGuesses"></div>
+      
       <h4>Letters Guessed</h4>
       <div id="guessedLetters"></div>
+      
+    </div>
+    <div class="container">
+      <h1></h1>
+      <p></p>
+
+     
+      
 
   </div>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

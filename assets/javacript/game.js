@@ -20,7 +20,24 @@ var losses = 0;
 
 resetGame();
 
-
+// Wait for key press
+document.onkeyup = function(event) 
+    {
+    // Make sure key pressed is an alphabet character
+    if (isAlpha(event.key))
+        {
+        checkForLetter(event.key.toUpperCase());
+        }
+    }
+// Check in keypressed is between A-Z or a-z
+function isAlpha (check)
+    {
+    return typeof check === "string" && 
+            check.length === 1 && 
+            (check >= "a" && check <= "z" || 
+             check >= "A" && check <= "Z");
+    }
+    console.log(event.key);
 
 function updateDisplay () 
     {
