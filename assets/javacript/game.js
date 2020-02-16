@@ -12,8 +12,8 @@ var possibleSongs = ["billie jean",
 const maxGuess = 10;
 var pauseGame = false;
 var guessedLetters = [];
-var guessingWord = [];
-var wordToMatch;
+var guessWord = [];
+var matchWord;
 var numGuess;
 var wins = 0;
 var losses = 0;
@@ -37,7 +37,7 @@ function isAlpha (check)
             (check >= "a" && check <= "z" || 
              check >= "A" && check <= "Z");
     }
-    console.log(event.key);
+    
 
 // ========================================================
 //                Game Functions
@@ -47,14 +47,14 @@ function checkForLetter(letter)
     {
     var foundLetter = false;
     // Search string for letter
-    for (var i=0, j= wordToMatch.length; i<j; i++) 
+    for (var i=0, j= matchWord.length; i<j; i++) 
         {
-        if (letter === wordToMatch[i]) 
+        if (letter === matchWord[i]) 
             {
-            guessingWord[i] = letter;
+            guessWord[i] = letter;
             foundLetter = true;
                 // If guessing word matches random word
-                if (guessingWord.join("") === wordToMatch) 
+                if (guessWord.join("") === matchWord) 
                     {
                     // adding 1 of wins
                     wins++;
@@ -64,7 +64,7 @@ function checkForLetter(letter)
                 
             }
         }
-
+        console.log(letter);
         if (!foundLetter) 
             {
             // Check if inccorrect guess is already on the list
@@ -75,10 +75,11 @@ function checkForLetter(letter)
                 // Decrement the number of remaining guesses
                 numGuess--;
                 }
+                //what if all guess gone
             if (numGuess === 0)
                 {
                 // Display word before reseting game
-                guessingWord = wordToMatch.split();
+                guessWord = matchWord.split();
                 pauseGame = true;
                 // adding to lost
                 losses++;
@@ -101,24 +102,24 @@ function resetGame()
     
 
     // Get a random song from the array
-    wordToMatch = possibleSongs[Math.floor(Math.random() * possibleSongs.length)].toUpperCase();
-    console.log(wordToMatch);
+    matchWord = possibleSongs[Math.floor(Math.random() * possibleSongs.length)].toUpperCase();
+    console.log(matchWord);
 
         // Reset word arrays
         guessedLetters = [];
-        guessingWord = [];
+        guessWord = [];
 
         // Reset the guessed word
-        for (var i=0, j=wordToMatch.length; i < j; i++)
+        for (var i=0, j=matchWord.length; i < j; i++)
           {
             // Put a space instead of an underscore between multi words
-            if (wordToMatch[i] === " ") 
+            if (matchWord[i] === " ") 
               {
-                guessingWord.push(" ");
+                guessWord.push(" ");
               }
              else 
               {
-                guessingWord.push("_");
+                guessWord.push("_");
               }
           }
 
@@ -130,7 +131,7 @@ function updateDisplay ()
     {
     document.getElementById("totalWins").innerText = wins;
     document.getElementById("totalLosses").innerText = losses;
-    document.getElementById("currentWord").innerText = guessingWord.join("");
+    document.getElementById("currentWord").innerText = guessWord.join("");
     document.getElementById("remainingGuesses").innerText = numGuess;
     document.getElementById("guessedLetters").innerText =  guessedLetters.join(" ");
     }
