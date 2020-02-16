@@ -39,6 +39,93 @@ function isAlpha (check)
     }
     console.log(event.key);
 
+// ========================================================
+//                Game Functions
+
+// Check if letter is in word & process
+function checkForLetter(letter) 
+    {
+    var foundLetter = false;
+    // Search string for letter
+    for (var i=0, j= wordToMatch.length; i<j; i++) 
+        {
+        if (letter === wordToMatch[i]) 
+            {
+            guessingWord[i] = letter;
+            foundLetter = true;
+                // If guessing word matches random word
+                if (guessingWord.join("") === wordToMatch) 
+                    {
+                    // adding 1 of wins
+                    wins++;
+                    pauseGame = true;
+                    setTimeout(resetGame,3000);
+                    }
+                
+            }
+        }
+
+        if (!foundLetter) 
+            {
+            // Check if inccorrect guess is already on the list
+            if (!guessedLetters.includes(letter)) 
+                {
+                // Add incorrect letter to guessed letter list
+                guessedLetters.push(letter);
+                // Decrement the number of remaining guesses
+                numGuess--;
+                }
+            if (numGuess === 0)
+                {
+                // Display word before reseting game
+                guessingWord = wordToMatch.split();
+                pauseGame = true;
+                // adding to lost
+                losses++;
+                // Reset game after 5 sec.
+                setTimeout(resetGame, 5000);
+                }
+            }
+       
+    
+    // update the html after the code runs.
+    updateDisplay();
+    }
+
+
+// Resetting the game function
+function resetGame() 
+    {
+    numGuess = maxGuess;
+    pauseGame = false;
+    
+
+    // Get a random song from the array
+    wordToMatch = possibleSongs[Math.floor(Math.random() * possibleSongs.length)].toUpperCase();
+    console.log(wordToMatch);
+
+        // Reset word arrays
+        guessedLetters = [];
+        guessingWord = [];
+
+        // Reset the guessed word
+        for (var i=0, j=wordToMatch.length; i < j; i++)
+          {
+            // Put a space instead of an underscore between multi words
+            if (wordToMatch[i] === " ") 
+              {
+                guessingWord.push(" ");
+              }
+             else 
+              {
+                guessingWord.push("_");
+              }
+          }
+
+        // update the html after the code runs.
+        updateDisplay()
+    }
+
 function updateDisplay () 
     {
     document.getElementById("totalWins").innerText = wins;

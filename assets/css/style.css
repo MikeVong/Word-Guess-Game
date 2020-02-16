@@ -2,12 +2,40 @@ body
 {
     font-family: 'Audiowide', cursive;
     color: white;
+    background-color: black;
     
 }
 #back
 {
     background-color: black;
 }
-hr{
+h1{
     color: violet;
+}
+h3{
+    text-align: center;
+}
+#currentWord {
+    letter-spacing: 10px;
+    font-size: 24px;
+    text-align: center;
+}
+#high
+{
+    height: 30px;
+}
+#totalWins {
+    text-align: center;
+    color: violet;
+}
+#totalLosses{
+    text-align: center;
+    color: tomato;
+}
+#remainingGuesses{
+    text-align: center;
+    color: yellow;
+}
+#guessedLetters{
+    color: yellow;
 }
