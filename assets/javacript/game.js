@@ -65,10 +65,10 @@ function checkForLetter(letter)
             }
         }
         console.log(letter);
-        if (!foundLetter) 
+        if (foundLetter === false) 
             {
             // Check if inccorrect guess is already on the list
-            if (!guessedLetters.includes(letter)) 
+            if (guessedLetters.includes(letter) === false) 
                 {
                 // Add incorrect letter to guessed letter list
                 guessedLetters.push(letter);
@@ -87,7 +87,8 @@ function checkForLetter(letter)
                 setTimeout(resetGame, 5000);
                 }
             }
-       
+        console.log("guess letter " + guessedLetters);
+        console.log("found letter " + foundLetter);
     
     // update the html after the code runs.
     updateDisplay();
