@@ -8,6 +8,7 @@ var possibleSongs = ["billie jean",
                     "time after time",
                     "in the air tonight",
                     "take my breath away"];
+                    
 // pre-set variables
 const maxGuess = 10;
 var pauseGame = false;
@@ -104,16 +105,18 @@ function resetGame()
 
     // Get a random song from the array
     matchWord = possibleSongs[Math.floor(Math.random() * possibleSongs.length)].toUpperCase();
-    console.log(matchWord);
+    console.log("The Match word is " + matchWord);
+
+    
+    
 
         // Reset word arrays
         guessedLetters = [];
         guessWord = [];
 
-        // Reset the guessed word
+        // Put a space instead of an underscore between multi words
         for (var i=0, j=matchWord.length; i < j; i++)
           {
-            // Put a space instead of an underscore between multi words
             if (matchWord[i] === " ") 
               {
                 guessWord.push(" ");
