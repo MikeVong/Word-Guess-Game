@@ -21,6 +21,16 @@ var losses = 0;
 
 resetGame();
 
+// Displaying results
+function display () 
+    {
+    document.getElementById("totalWins").innerText = wins;
+    document.getElementById("totalLosses").innerText = losses;
+    document.getElementById("currentWord").innerText = guessWord.join("");
+    document.getElementById("remainingGuesses").innerText = numGuess;
+    document.getElementById("guessedLetters").innerText =  guessedLetters.join(" ");
+    }
+
 // Wait for key press
 document.onkeyup = function(event) 
     {
@@ -88,11 +98,11 @@ function checkForLetter(letter)
                 setTimeout(resetGame, 5000);
                 }
             }
-        console.log("guess letter " + guessedLetters);
-        console.log("found letter " + foundLetter);
+        console.log("Guess letter " + guessedLetters);
+        console.log("Found letter " + foundLetter);
     
     // update the html after the code runs.
-    updateDisplay();
+    display();
     }
 
 
@@ -128,14 +138,6 @@ function resetGame()
           }
 
         // update the html after the code runs.
-        updateDisplay()
+        display()
     }
 
-function updateDisplay () 
-    {
-    document.getElementById("totalWins").innerText = wins;
-    document.getElementById("totalLosses").innerText = losses;
-    document.getElementById("currentWord").innerText = guessWord.join("");
-    document.getElementById("remainingGuesses").innerText = numGuess;
-    document.getElementById("guessedLetters").innerText =  guessedLetters.join(" ");
-    }

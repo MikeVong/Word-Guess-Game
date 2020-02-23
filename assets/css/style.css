@@ -1,41 +1,47 @@
 body
-{
+    {
     font-family: 'Audiowide', cursive;
     color: white;
     background-color: black;
-    
-}
+    }
 #back
-{
+    {
     background-color: black;
-}
-h1{
+    }
+h1
+    {
     color: violet;
-}
-h3{
+    }
+h3
+    {
     text-align: center;
-}
-#currentWord {
+    }
+#currentWord 
+    {
     letter-spacing: 10px;
     font-size: 24px;
     text-align: center;
-}
+    }
 #high
-{
+    {
     height: 30px;
-}
-#totalWins {
+    }
+#totalWins 
+    {
     text-align: center;
     color: violet;
-}
-#totalLosses{
+    }
+#totalLosses
+    {
     text-align: center;
     color: tomato;
-}
-#remainingGuesses{
+    }
+#remainingGuesses
+    {
     text-align: center;
+    color: green;
+    }
+#guessedLetters
+    {
     color: yellow;
-}
-#guessedLetters{
-    color: yellow;
-}
+    }
